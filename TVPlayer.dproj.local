@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<ActiveMobileDevice>
+		<PMacOsCatalinaVMJorge iOSSimulator="iPhone5"/>
+		<NoProfile Android64="" Android="192.168.15.7:5555"/>
+	</ActiveMobileDevice>  <Transactions>
+    <Transaction>2020/10/20 09:00:39.155,C:\Desenvolvimento\EmbarcaderoConference\StreamingPlayer\TVPlayer.dproj=C:\Desenvolvimento\EmbarcaderoConference\StreamingPlayer\StreamingMedia.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

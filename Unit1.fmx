@@ -1,0 +1,198 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 564
+  ClientWidth = 448
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object MediaPlayer1: TMediaPlayer
+    Left = 48
+    Top = 424
+  end
+  object ToolBar1: TToolBar
+    Size.Width = 448.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    object Label1: TLabel
+      Align = Contents
+      Size.Width = 448.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'toollabel'
+      Text = '  TV PLayer'
+    end
+    object Button3: TButton
+      Align = Right
+      Margins.Left = 5.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 286.000000000000000000
+      Size.Width = 44.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'refreshtoolbutton'
+      TabOrder = 3
+      Text = 'Stop'
+      OnClick = Button3Click
+    end
+    object Button1: TButton
+      Align = Right
+      Margins.Right = 5.000000000000000000
+      Position.X = 399.000000000000000000
+      Size.Width = 44.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'playtoolbuttonbordered'
+      TabOrder = 4
+      Text = 'Play'
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Align = Right
+      Margins.Left = 5.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 345.000000000000000000
+      Size.Width = 44.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'stoptoolbuttonbordered'
+      TabOrder = 2
+      Text = 'Stop'
+      OnClick = Button2Click
+    end
+  end
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 448.000000000000000000
+    Size.Height = 520.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 30.000000000000000000
+    TabIndex = 1
+    TabOrder = 3
+    TabPosition = PlatformDefault
+    OnChange = TabControl1Change
+    Sizes = (
+      448s
+      490s
+      448s
+      490s)
+    object TabItemPlayer: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 52.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'tabitembookmarks'
+      TabOrder = 0
+      Text = 'Player'
+      ExplicitSize.cx = 73.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object Rectangle1: TRectangle
+        Align = Client
+        Fill.Color = claBlack
+        Size.Width = 448.000000000000000000
+        Size.Height = 490.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object TabItemLista: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 99.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Lista de Canais'
+      ExplicitSize.cx = 99.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object ListBoxCanais: TListBox
+        Align = Client
+        Size.Width = 448.000000000000000000
+        Size.Height = 490.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnDblClick = ListBoxCanaisDblClick
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        OnKeyDown = ListBoxCanaisKeyDown
+        OnKeyUp = ListBoxCanaisKeyUp
+        OnItemClick = ListBoxCanaisItemClick
+        Viewport.Width = 444.000000000000000000
+        Viewport.Height = 486.000000000000000000
+        object AniIndicator1: TAniIndicator
+          Align = Center
+          Size.Width = 100.000000000000000000
+          Size.Height = 100.000000000000000000
+          Size.PlatformDefault = False
+          Style = Circular
+          Visible = False
+        end
+      end
+    end
+  end
+  object MediaPlayerControl1: TMediaPlayerControl
+    OnTap = MediaPlayerControl1Tap
+    Size.Width = 311.000000000000000000
+    Size.Height = 173.000000000000000000
+    Size.PlatformDefault = False
+    MediaPlayer = MediaPlayer1
+    Position.X = 128.000000000000000000
+    Position.Y = 380.000000000000000000
+  end
+  object AniIndicatorPlayer: TAniIndicator
+    Align = Center
+    Size.Width = 100.000000000000000000
+    Size.Height = 100.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object TimerLoadPlayer: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = TimerLoadPlayerTimer
+    Left = 40
+    Top = 354
+  end
+  object IdHTTP1: TIdHTTP
+    AllowCookies = True
+    ProxyParams.BasicAuthentication = False
+    ProxyParams.ProxyPort = 0
+    Request.ContentLength = -1
+    Request.ContentRangeEnd = -1
+    Request.ContentRangeStart = -1
+    Request.ContentRangeInstanceLength = -1
+    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    Request.BasicAuthentication = False
+    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
+    Request.Ranges.Units = 'bytes'
+    Request.Ranges = <>
+    HTTPOptions = [hoForceEncodeParams]
+    Left = 48
+    Top = 170
+  end
+  object NetHTTPClient1: TNetHTTPClient
+    Asynchronous = False
+    ConnectionTimeout = 60000
+    ResponseTimeout = 60000
+    HandleRedirects = True
+    AllowCookies = True
+    UserAgent = 'Embarcadero URI Client/1.0'
+    Left = 168
+    Top = 171
+  end
+end
